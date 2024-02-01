@@ -15,6 +15,8 @@ function Artwork(props) {
       </div>
       <div className={styles.author}>{props.author}</div>
       <div className={styles.title}>{title}</div>
+      <div className={styles.title}>{props.museum}</div>
+
     </div>
   );
 }

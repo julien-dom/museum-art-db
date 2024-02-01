@@ -11,21 +11,21 @@ function Home() {
     fetch(
       "https://api.artic.edu/api/v1/artworks/search?query[term][department_id]=PC-12&limit=100&fields=id,title,image_id, department_title, date_display, artist_display, description, artist_titles, term_titles"
     )
-      .then((response) => response.json())
-      .then((data) => {
-        const formatedData = data.data.map((artwork) => {
-          let image = `https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`;
-          let author = artwork.artist_titles;
-          let title = artwork.title;
+    .then((response) => response.json())
+    .then((data) => {
+      const formatedData = data.data.map((artwork) => {
+        let image = `https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`;
+        let author = artwork.artist_titles;
+        let title = artwork.title;
 
-          return {
-            image,
-            author,
-            title,
-          };
-        });
-        setArtworksData(formatedData);
+        return {
+          image,
+          author,
+          title,
+        };
       });
+      setArtworksData(formatedData);
+    });
   }, []);
 
   //Fecth API musée Cleveland
