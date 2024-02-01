@@ -1,0 +1,14 @@
+.artworkContainer {
+  margin: 1rem;
+  height: 33%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.imageContainer {
+  background-color: lightgrey;
+  width: 15rem;
+  height: 15rem;
+  position: relative;
+}

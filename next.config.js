@@ -2,7 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [],
+   domains: ['www.artic.edu', 'openaccess-cdn.clevelandart.org', 'nrs.harvard.edu'],
+
   },
 };
 
