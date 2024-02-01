@@ -4,3 +4,18 @@
     flex-wrap: wrap;
     height: 100vh;
   }
+
+  .customAuthor {
+    font-size: 12px;
+    /* Autres styles personnalisés si nécessaire */
+  }
+  
+  .customTitle {
+    font-size: 12px;
+    /* Autres styles personnalisés si nécessaire */
+  }
+  
+  .customMuseum {
+    font-size: 10px;
+    /* Autres styles personnalisés si nécessaire */
+  }

@@ -4,9 +4,17 @@ import Head from "next/head";
 import Artwork from "./Artwork";
 
 function Home() {
+
+  // STYLE customisé
+  const customArtworkStyles = {
+    author: styles.customAuthor,
+    title: styles.customTitle,
+    museum: styles.customMuseum,
+  };
+
   const [artworksData, setArtworksData] = useState([]);
 
-  // //Fetch API musée Chicago
+  // Fetch API musée Chicago
   useEffect(() => {
     fetch(
       "https://api.artic.edu/api/v1/artworks/search?query[term][department_id]=PC-12&limit=100&fields=id,title,image_id, department_title, date_display, artist_display, description, artist_titles, term_titles"
@@ -97,14 +105,14 @@ function Home() {
     if (formattedAuthor.length > 30) {
       formattedAuthor = formattedAuthor.substring(0, 30) + "...";
     }
-    return <Artwork key={i} {...data} />;
+    return <Artwork key={i} {...data} customStyles={customArtworkStyles}/>;
   });
 
   // console.log('console log artworkData is', artworksData)
   return (
     <div>
       <Head>
-        <title>LGBTQIA+ Art</title>
+        <title>Museum Images Database</title>
       </Head>
       <div className={styles.artworksContainer}>{artworks}</div>
     </div>
