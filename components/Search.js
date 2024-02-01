@@ -4,6 +4,8 @@ import Head from "next/head";
 import Artwork from "./Artwork";
 
 function Search() {
+  const harvardApiKey = process.env.NEXT_PUBLIC_HARVARD_API_KEY;
+
   const customArtworkStyles = {
     author: styles.customAuthor,
     title: styles.customTitle,
@@ -13,14 +15,14 @@ function Search() {
   const [searchKeyword, setSearchKeyword] = useState("");
   const [resultsData, setResultsData] = useState([]);
   
-  // handle subit qui se declenche lorsque je clique bouton search (ça cherche dans mes API)
+  // handle submit qui se declenche lorsque je clique bouton search (ça cherche dans mes API)
   const handleSubmit = async () => {
     try {
       setResultsData([]);
   
       // Harvard Art Museums API
       const harvardResponse = await fetch(
-        `https://api.harvardartmuseums.org/object?apikey=586ec4d2-e357-4678-8534-776ebec91e99&size=200&hasimage=1&q=${searchKeyword}`
+        `https://api.harvardartmuseums.org/object?apikey=${harvardApiKey}&size=200&hasimage=1&q=${searchKeyword}`
       );
       const harvardData = await harvardResponse.json();
       const harvardFormattedData = harvardData.records
